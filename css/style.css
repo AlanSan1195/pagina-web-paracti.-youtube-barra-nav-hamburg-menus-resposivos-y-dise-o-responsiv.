@@ -1,0 +1,360 @@
+:root {
+  --Almost-White: hsl(0, 0%, 98%);
+  --Medium-Gray: hsl(0, 0%, 41%);
+  --Almost-Black: hsl(0, 0%, 8%);
+}
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Epilogue", sans-serif;
+}
+
+.container {
+  width: 90%;
+
+  margin: 0 auto;
+  overflow: hidden;
+  max-width: 1200px;
+}
+.nav {
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav__hamburguer {
+  width: 30px;
+  height: 50%;
+  background-image: url("../images/icon-menu.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+
+  z-index: 100;
+  transition: background-image 0.3s;
+}
+/* clase creada para agregar una imagen de una 'x' */
+.nav__hamburguer-open {
+  background-image: url(../images/icon-close-menu.svg);
+}
+
+
+
+
+
+
+
+
+/* estilo del efecto tranparente  */
+.nav__transparente {
+  background-color: rgba(0, 0, 0, 0.377);
+  position: fixed;
+  inset: 0;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s opacity;
+}
+
+.nav__transparente-show {
+  opacity: 1;
+  pointer-events: unset;
+}
+
+
+
+
+
+
+
+/* todo el menu blanco derecho */
+.nav__menu {
+  background-color: #fff;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 65%;
+  list-style: none;
+  overflow: auto;
+  max-width: 400px;
+  /* padding: 0 */
+  padding: 70px 0;
+}
+
+.nav__item {
+  /* background-color: black; */
+  color: var(--Almost-Black);
+  margin: 0 auto;
+  width: 80%;
+  cursor: pointer;
+  padding: 20px 0;
+}
+
+.nav__item:has(.nav__parent) {
+  padding: 0;
+}
+.nav__ineer {
+  list-style: none;
+}
+/* seudo clase 'has' */
+/* quitando el pading a solo dos elementos de la lista (al Features y Company */
+/* // se lee asi: de los elementos nav_icon que tenga un elemento hijo :has con la clase (.nav_parent) */
+
+.nav__inner {
+  list-style: none;
+
+  padding: 0;
+  margin: 0 auto;
+  /* con el margin: centramos ese ancho de 80% */
+  width: 80%;
+  display: grid;
+  gap: 1.5em;
+
+  overflow: hidden;
+  /* ocultando el inner */
+  height: 0;
+  transition: height 0.4s;
+}
+
+/* todo lo de la navegacion interna como quitarle el estilo a los puntitos negros de las <UL>, todo list, calendar,reminder, planning */
+
+.nav__parent {
+  /* PROBEMOS DESPUES COMENTANDO TODO ESTO A VER QUE CAMBIA  */
+  display: grid;
+  align-items: center;
+  grid-auto-flow: column;
+  grid-auto-columns: max-content;
+  gap: 1.3em;
+  padding: 20px 0;
+}
+
+.nav__link {
+  text-decoration: none;
+  color: var(--Almost-Black);
+}
+
+.nav__login {
+  width: 90%;
+  margin: 0 auto;
+  /* esta convinacion de width y margin es para darle el taMAÑO DEL CONTENEDOR Y CENTRAR ESe mismo tamaño */
+  text-align: center;
+  /* ESTAMOS CREANDO UN BOTON IMAGINARIO */
+}
+
+.nav__login-border {
+  border-radius: 1em;
+  border: 1px solid var(--Medium-Gray);
+}
+
+.nav__sign {
+  display: inline-block;
+  /* el display in block hace qu ese vea un boton mas amplio */
+  color: var(--Medium-Gray);
+  padding: 0.7em 0;
+  text-decoration: none;
+}
+
+
+
+
+
+
+
+
+
+
+/* main  */
+
+/* _________________________________________________________ */
+
+/*  Aapartir de aqui estamos creando la vista del Desksetup y me cuasa la dudad de saber como hacer que los elementos se acomoden de las dos maneras, la mobile qu eya creamos y  esta texto, como se codea para que convivan ambos estilos */
+
+
+
+/* LA CLAVE ESTA en .main_picture{}, img_marcas{} y  */
+.main_grid {
+  overflow: hidden;
+
+  display: grid;
+  grid-template-columns: 5% 1fr 5%;
+  /* 3 columnas del 5% la de enmedio un afraccion  */
+
+  grid-template-areas:
+  "img img img"
+   ".  text  . ";
+   /* creamos areas de columnas, la primera tendra tres imagenes la segunda tendra dos columnas vacias y la del centro sera el texto */
+
+
+}
+.main_article{
+
+    grid-area: text;
+    padding: 56px 0;
+    text-align: center;
+
+
+}
+.h1_texto{
+    font-size: 2rem;
+
+}
+.p_texto{
+    line-height: 1.5;
+    margin: 1.5 0;
+
+
+}
+.a_texto{
+    background-color: var(--Almost-Black);
+    color: #fff;
+    display: inline-block;
+    /* darle display in-block nos permite darle un padding como tipo boton al texto y nos aleja los otros elementos del alrededor, como elementos uno despues del otro en bloque pero sin juntarse ni tocarse  */
+    padding: .8em 1.5em;
+    text-decoration: none;
+    border-radius: 10px;
+    margin: 10px;
+    font-weight:700 ;
+
+}
+
+.main_picture{
+    grid-area: img;
+    /* dividimos en areas  recuerda y aqui le pediomos que la imagen abarque toda el area de las columnas de las
+    "img img img"*/
+    max-width: 400px;
+    margin: 0 auto;
+
+}
+.img_marcas{
+    display: grid;
+    gap: 1rem;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(30px 100px);
+    /* que las columnas se cren auto con un tamaño minimo de (30px 100px) */
+    align-items: center;
+    justify-content: space-between;
+}
+.main_img {
+  width: 100%;
+}
+
+@media (min-width: 768px){
+  .nav{
+    gap: 2em;
+    overflow: visible;
+    padding: 50px 0 0 ;
+  }
+  .nav__hamburguer{
+    display: none;
+  }
+  .nav__transparente{
+    position: unset;
+    background-color: transparent;
+    opacity: 1;
+    pointer-events: unset;
+    /* background-color: bisque; */
+    flex: 1;
+
+  }
+/* receteamos todo el menu y le damos un estilo diferente  */
+  .nav__menu{
+    position: unset;
+    width: 100%;
+    max-width: unset;
+    background-color: unset;
+    overflow: unset;
+    padding: 0;
+
+    display: flex;
+    gap: 1em;
+    align-items: center;
+  }
+
+  .nav__item{
+    width: max-content;
+    margin: 0;
+    padding: 0;
+
+    position: relative;
+
+  }
+  .nav__inner{
+    background-color: #fff;
+    height: auto;
+    position: absolute;
+    left: 0;
+    padding: 0;
+    width: max-content;
+    padding: 2em;
+    z-index: 1000;
+
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .5) ;
+
+
+    /* transicion y desaparecer los elementos TropDown */
+    transition: opacity,  .3s;
+    opacity: 0;
+    pointer-events: none;
+
+  }
+
+  .nav_inner-show{
+    opacity: 1;
+    pointer-events: unset;
+
+  } 
+  .nav__login{
+    width: max-content;
+    margin: 0;
+    margin-left: auto;
+
+  }
+  .nav__login-border{
+    margin: 0;
+    padding: 0 1.5em;
+  }
+  .main_grid{
+    margin: 0 auto;
+    max-width: 1200px;
+    width: 90%;
+    gap: 2em;
+
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 'text img'; 
+
+    padding: 70px 0;
+  }
+  .main_picture{
+    max-height: 500px;
+  }
+  .main_img{
+    height: 100%;
+  }
+  .main_article{
+    text-align: left;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  .img_marcas{
+    margin: auto 0 0;
+  }
+  .main_textos{
+    margin: auto 0;
+  }
+  .h1_texto{
+    font-size: 3.5rem;
+
+  }
+  .p_texto{
+    margin: 2em 0 ;
+  }
+  
+}

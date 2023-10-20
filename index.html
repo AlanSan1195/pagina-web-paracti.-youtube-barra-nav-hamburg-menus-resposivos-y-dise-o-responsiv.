@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <title>yutube practica</title>
+    <!-- importe las fuentes solicitadas en ele archivo ./style-guide en el link de ggogle fonts  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Epilogue:wght@500;700&family=Poppins:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+
+    <style>
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="nav container">
+      <img src="./images/logo.svg" class="nav__img" alt="" />
+      <div class="nav__hamburguer"></div>
+
+      <!-- este div es para simular en css una capa transparente que se vera a la do de la navegacion cuando estemos en modo moibil -->
+      <div class="nav__transparente">
+        <ul class="nav__menu">
+          <!-- Features >  -->
+          <li class="nav__item">
+            <span class="nav__parent"
+              >Features
+              <img
+                src="./images/icon-arrow-down.svg"
+                class="nav__arrow"
+                alt=""
+              />
+            </span>
+            <ul class="nav__inner">
+              <li class="nav_dropdown nav_dropdow--icon">
+                <a href="#" class="nav__link">
+                  <img
+                    src="./images/icon-todo.svg"
+                    alt=""
+                    class="nav__ilustration"
+                  />
+                  Todo list
+                </a>
+              </li>
+              <li class="nav_dropdown nav_dropdow--icon">
+                <a href="#" class="nav__link">
+                  <img
+                    src="./images/icon-calendar.svg"
+                    alt=""
+                    class="nav__ilustration"
+                  />
+                  Calendar
+                </a>
+              </li>
+              <li class="nav_dropdown nav_dropdow--icon">
+                <a href="#" class="nav__link">
+                  <img
+                    src="./images/icon-reminders.svg"
+                    alt=""
+                    class="nav__ilustration"
+                  />
+                  Remainder
+                </a>
+              </li>
+              <li class="nav_dropdown nav_dropdow--icon">
+                <a href="#" class="nav__link">
+                  <img
+                    src="./images/icon-planning.svg"
+                    alt=""
+                    class="nav__ilustration"
+                  />
+                  Planning
+                </a>
+              </li>
+            </ul>
+          </li>
+          <!-- Company >  -->
+          <li class="nav__item">
+            <span class="nav__parent"
+              >Company
+              <img
+                src="./images/icon-arrow-down.svg"
+                class="nav__arrow"
+                alt=""
+              />
+            </span>
+            <ul class="nav__inner">
+              <li class="nav_dropdown">
+                <a href="#" class="nav__link">History</a>
+              </li>
+              <li class="nav_dropdown">
+                <a href="#" class="nav__link">Our Team</a>
+              </li>
+              <li class="nav_dropdown">
+                <a href="#" class="nav__link">Blog</a>
+              </li>
+            </ul>
+          </li>
+          <!-- Carres  -->
+          <li class="nav__item">
+            <a href="#" class="nav__link">Carres</a>
+          </li>
+          <!-- About -->
+          <li class="nav__item">
+            <a href="#" class="nav__link">About</a>
+          </li>
+          <!-- loging y register  -->
+          <li class="nav__login">
+            <a href="#" class="nav__sign">Login</a>
+          </li>
+          <li class="nav__login nav__login-border">
+            <a href="#" class="nav__sign">Register</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <main class="main">
+      <section class="main_grid">
+        <picture class="main_picture">
+          <!-- //con esta etiqueta cambiamos de imagen sin usar JS ni background imagen en css  -->
+          <!-- con la condicion de la etiqueta "media" un min- width:768px -->
+          <source
+            srcset="./images/image-hero-desktop.png"
+            class="main_img" 
+            media="(min-width:768px)"
+          />
+
+          <img src="./images/image-hero-mobile.png" class="main_img" />
+        </picture>
+
+        <article class="main_article">
+          <div class="main_textos">
+            <h1 class="h1_texto">Features Company</h1>
+            <p class="p_texto">
+              Careers About Login Register Make remote work Get your team in
+              sync, no matter your location. Streamline processes, create team
+              rituals, and watch productivity soar.
+            </p>
+            <a href="#" class="a_texto"> Learn more</a>
+          </div>
+          <div class="img_marcas">
+            <img src="./images/client-databiz.svg" alt="" class="img_marca">
+            <img src="./images/client-audiophile.svg" alt="" class="img_marca">
+            <img src="./images/client-meet.svg" alt="" class="img_marca">
+            <img src="./images/client-maker.svg" alt="" class="img_marca">
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <script src="./js/menu.js"></script>
+  </body>
+</html>
